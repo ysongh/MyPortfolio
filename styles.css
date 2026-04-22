@@ -154,25 +154,8 @@ section { padding: 7rem 3rem; }
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.project-thumb.sport {
-  background: repeating-linear-gradient(
-    -55deg, #e8e2d6 0px, #e8e2d6 12px, #ede8df 12px, #ede8df 24px
-  );
-}
-.project-thumb.cheap {
-  background: repeating-linear-gradient(
-    45deg, #dde4dc 0px, #dde4dc 12px, #e4ede3 12px, #e4ede3 24px
-  );
-}
-.project-thumb.mini {
-  background: repeating-linear-gradient(
-    30deg, #dce0e8 0px, #dce0e8 12px, #e3e7f0 12px, #e3e7f0 24px
-  );
-}
-.thumb-label {
-  position: absolute; bottom: 1rem; left: 1rem;
-  font-family: monospace; font-size: 0.7rem; color: rgba(0,0,0,0.3);
-  background: rgba(255,255,255,0.6); padding: 0.2rem 0.5rem; border-radius: 2px;
+.project-thumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
 }
 
 .project-body { padding: 1.75rem; }

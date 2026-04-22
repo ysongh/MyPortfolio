@@ -4,10 +4,10 @@ Static personal portfolio site for Song (full stack developer). Plain HTML/CSS/J
 
 ## Files
 
-- `Portfolio.html` — page structure (nav, hero, projects, contact, footer)
-- `index.html` — same page, alternate entry point
+- `index.html` — page structure (nav, hero, projects, contact, footer)
 - `styles.css` — all styling; uses CSS custom properties defined on `:root`
 - `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (simulated send, not wired to a backend)
+- `images/` — project screenshots (`findsport2play.png`, `cheapnyc.png`, `miniappgallery.png`)
 
 ## Design system
 
@@ -21,7 +21,7 @@ Defined as CSS variables in `styles.css` `:root`:
 ## Conventions
 
 - Reveal-on-scroll: add `.reveal` class — `script.js` observes and adds `.visible` when in viewport
-- Project thumbs use CSS stripe patterns (`.sport`, `.cheap`, `.mini`) as placeholders until real screenshots are added
+- Project thumbs are `<img>` inside `.project-thumb` (16:9, `object-fit: cover`)
 - Accent-dependent border on `.tag` uses a hardcoded `oklch(0.87 0.07 260)` that must be updated if the accent hue changes
 - Responsive breakpoint: single `@media (max-width: 768px)` block at bottom of `styles.css`
 
@@ -31,6 +31,5 @@ Implemented from a Claude Design handoff bundle. The original prototype had an i
 
 ## Known TODO (not done)
 
-- Real project screenshots for the three cards
 - Wire contact form to a backend (Formspree / EmailJS) — currently fakes success after 1.2s
 - Resume PDF link
