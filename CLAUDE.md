@@ -17,6 +17,8 @@ Defined as CSS variables in `styles.css` `:root`:
 - Type: Playfair Display (serif, editorial headings) + DM Sans (sans, body), loaded from Google Fonts
 - Sections use `padding: 7rem 3rem` (desktop) / `5rem 1.5rem` (≤768px)
 - Hero has extra top padding (`6rem` / `5rem`) to clear the fixed nav
+- Hero is a 2-col grid (`.hero-left` text / `.hero-right` 3D scene); collapses to 1-col at ≤900px
+- 3D hero scene (`.hero-3d-scene`): code-editor card with syntax-highlighted lines, 3 floating chips, and a blur-shadow blob. Uses `perspective` on `.hero-right` + `transform-style: preserve-3d` + `translateZ` on chips. Animation keyframes: `floatScene`, `chipFloat1/2/3`, `shadowPulse`, `blink` (cursor)
 
 ## Conventions
 
