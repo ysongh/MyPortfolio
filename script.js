@@ -14,13 +14,23 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 const form = document.getElementById('contact-form');
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = document.getElementById('submit-btn');
   const status = document.getElementById('form-status');
   btn.textContent = 'Sending…';
   btn.disabled = true;
-  setTimeout(() => {
+  status.textContent = '';
+
+  try {
+    const body = new URLSearchParams(new FormData(form)).toString();
+    const res = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
+    if (!res.ok) throw new Error(res.statusText);
+
     status.textContent = "Message sent! I'll be in touch soon.";
     btn.textContent = 'Sent ✓';
     form.reset();
@@ -29,5 +39,9 @@ form.addEventListener('submit', (e) => {
       btn.disabled = false;
       status.textContent = '';
     }, 4000);
-  }, 1200);
+  } catch (err) {
+    status.textContent = 'Something went wrong. Please email me directly.';
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }
 });

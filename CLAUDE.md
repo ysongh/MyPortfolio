@@ -6,7 +6,7 @@ Static personal portfolio site for Song (full stack developer). Plain HTML/CSS/J
 
 - `index.html` — page structure (nav, hero, projects, contact, footer)
 - `styles.css` — all styling; uses CSS custom properties defined on `:root`
-- `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (simulated send, not wired to a backend)
+- `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (AJAX-posts to Netlify Forms)
 - `images/` — project screenshots (`findsport2play.png`, `cheapnyc.png`, `miniappgallery.png`)
 
 ## Design system
@@ -31,5 +31,8 @@ Implemented from a Claude Design handoff bundle. The original prototype had an i
 
 ## Known TODO (not done)
 
-- Wire contact form to a backend (Formspree / EmailJS) — currently fakes success after 1.2s
 - Resume PDF link
+
+## Netlify Forms
+
+The contact form uses Netlify Forms. The form element has `name="contact"`, `method="POST"`, `data-netlify="true"`, and a `netlify-honeypot="bot-field"` for spam protection. A hidden `form-name` input is included so JS submissions are also detected. `script.js` posts to `/` as `application/x-www-form-urlencoded` so the page doesn't navigate away on submit. Submissions appear in the Netlify site dashboard under Forms (only works on deployed site, not local preview).
