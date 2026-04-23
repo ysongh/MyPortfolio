@@ -7,7 +7,7 @@ Static personal portfolio site for Song (full stack developer). Plain HTML/CSS/J
 - `index.html` — page structure (nav, hero, projects, contact, footer)
 - `styles.css` — all styling; uses CSS custom properties defined on `:root`
 - `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (AJAX-posts to Netlify Forms)
-- `images/` — project screenshots (`findsport2play.png`, `cheapnyc.png`, `miniappgallery.png`)
+- `images/` — project screenshots (`customeronboardagent.png`, `cheapnyc.png`, `miniappgallery.png`); all lowercase, no separators
 
 ## Design system
 
