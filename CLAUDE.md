@@ -1,6 +1,6 @@
 # MyPortfolioV2
 
-Static personal portfolio site for Song (full stack developer). Plain HTML/CSS/JS — no build step, no framework.
+Static personal portfolio site for Song — full stack + AI engineer based in NYC. Positioning emphasizes LLM-powered apps and agents (React/Node/TS/Mongo + Python, OpenAI, Anthropic, LangChain, local inference via Ollama/vLLM); target audience is recruiters and founders hiring for full stack or AI engineering roles. Plain HTML/CSS/JS — no build step, no framework.
 
 ## Files
 

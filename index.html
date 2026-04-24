@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Song — Full Stack Developer</title>
+  <title>Song — Full Stack & AI Engineer, NYC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
@@ -22,9 +22,9 @@
 
 <section id="home">
   <div class="hero-left">
-    <div class="hero-eyebrow">Full Stack Developer &amp; Builder</div>
-    <h1 class="hero-name">I build<br/>things for<br/><em>the web.</em></h1>
-    <p class="hero-tagline">Hi, I'm Song — a full stack developer with a passion for building clean, user-focused web apps and exploring the frontier of Web3. Currently open to new opportunities.</p>
+    <div class="hero-eyebrow">Full Stack &amp; AI Engineer · NYC</div>
+    <h1 class="hero-name">Full stack apps,<br/>now <em>with agents<br/>inside.</em></h1>
+    <p class="hero-tagline">I'm Song — I build full stack web apps and LLM-powered AI agents. Comfortable across the whole stack: React frontends, Node/Express APIs, MongoDB, and local inference with Ollama and vLLM. Open to full stack and AI engineering roles.</p>
     <div class="hero-ctas">
       <a href="#myProject" class="btn-primary">View My Work</a>
       <a href="#contactMe" class="btn-outline">Get in Touch</a>
@@ -32,10 +32,12 @@
     <div class="skills-strip">
       <span class="skill-tag">React</span>
       <span class="skill-tag">Node.js</span>
-      <span class="skill-tag">MongoDB</span>
       <span class="skill-tag">TypeScript</span>
-      <span class="skill-tag">Solidity</span>
-      <span class="skill-tag">Web3</span>
+      <span class="skill-tag">MongoDB</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">OpenAI</span>
+      <span class="skill-tag">Anthropic</span>
+      <span class="skill-tag">LangChain</span>
       <span class="skill-tag">GraphQL</span>
       <span class="skill-tag">REST API</span>
     </div>
@@ -52,21 +54,21 @@
             <span class="h3d-filename">portfolio.js</span>
           </div>
           <div class="h3d-code">
-            <div class="h3d-line"><span class="h3d-ln">1</span><span class="h3d-text"><span class="h3d-kw">const</span> <span class="h3d-pl">developer</span> = {</span></div>
-            <div class="h3d-line"><span class="h3d-ln">2</span><span class="h3d-text">&nbsp;&nbsp;name: <span class="h3d-str">'Song'</span>,</span></div>
-            <div class="h3d-line"><span class="h3d-ln">3</span><span class="h3d-text">&nbsp;&nbsp;role: <span class="h3d-str">'Full Stack Dev'</span>,</span></div>
-            <div class="h3d-line"><span class="h3d-ln">4</span><span class="h3d-text">&nbsp;&nbsp;stack: [<span class="h3d-str">'React'</span>, <span class="h3d-str">'Node'</span>],</span></div>
-            <div class="h3d-line"><span class="h3d-ln">5</span><span class="h3d-text">&nbsp;&nbsp;web3: <span class="h3d-kw">true</span>,</span></div>
-            <div class="h3d-line"><span class="h3d-ln">6</span><span class="h3d-text">&nbsp;&nbsp;<span class="h3d-fn">build</span>: () <span class="h3d-kw">=&gt;</span> {</span></div>
-            <div class="h3d-line"><span class="h3d-ln">7</span><span class="h3d-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="h3d-cm">// ship great things</span></span></div>
-            <div class="h3d-line"><span class="h3d-ln">8</span><span class="h3d-text">&nbsp;&nbsp;&nbsp;&nbsp;<span class="h3d-kw">return</span> <span class="h3d-str">'amazing apps'</span>;</span></div>
-            <div class="h3d-line"><span class="h3d-ln">9</span><span class="h3d-text">&nbsp;&nbsp;}</span></div>
-            <div class="h3d-line"><span class="h3d-ln">10</span><span class="h3d-text">};<span class="h3d-cursor"></span></span></div>
+            <div class="h3d-line"><span class="h3d-ln">1</span><span class="h3d-text"><span class="h3d-kw">const</span> <span class="h3d-pl">agent</span> = <span class="h3d-kw">new</span> <span class="h3d-fn">AIAgent</span>({</span></div>
+            <div class="h3d-line"><span class="h3d-ln">2</span><span class="h3d-text">&nbsp;&nbsp;model: <span class="h3d-str">'llama3'</span>,</span></div>
+            <div class="h3d-line"><span class="h3d-ln">3</span><span class="h3d-text">&nbsp;&nbsp;runtime: <span class="h3d-str">'ollama'</span>,</span></div>
+            <div class="h3d-line"><span class="h3d-ln">4</span><span class="h3d-text">&nbsp;&nbsp;tools: [<span class="h3d-str">'search'</span>, <span class="h3d-str">'code'</span>],</span></div>
+            <div class="h3d-line"><span class="h3d-ln">5</span><span class="h3d-text">&nbsp;&nbsp;<span class="h3d-cm">// local inference, no API key</span></span></div>
+            <div class="h3d-line"><span class="h3d-ln">6</span><span class="h3d-text">});</span></div>
+            <div class="h3d-line"><span class="h3d-ln">7</span><span class="h3d-text">&nbsp;</span></div>
+            <div class="h3d-line"><span class="h3d-ln">8</span><span class="h3d-text"><span class="h3d-kw">await</span> agent.<span class="h3d-fn">run</span>(</span></div>
+            <div class="h3d-line"><span class="h3d-ln">9</span><span class="h3d-text">&nbsp;&nbsp;<span class="h3d-str">'build something great'</span></span></div>
+            <div class="h3d-line"><span class="h3d-ln">10</span><span class="h3d-text">);<span class="h3d-cursor"></span></span></div>
           </div>
         </div>
 
-        <div class="h3d-chip c1"><span class="chip-dot"></span>React &middot; Next.js</div>
-        <div class="h3d-chip c2"><span class="chip-dot"></span>Solidity &middot; Web3</div>
+        <div class="h3d-chip c1"><span class="chip-dot"></span>LLM &middot; Agentic AI</div>
+        <div class="h3d-chip c2"><span class="chip-dot"></span>React &middot; Node &middot; TS</div>
         <div class="h3d-chip c3"><span class="chip-dot"></span>Open to work</div>
       </div>
       <div class="h3d-shadow"></div>
@@ -76,7 +78,7 @@
 
 <section id="myProject">
   <div class="reveal"><p class="section-label">Selected Work</p></div>
-  <h2 class="section-title reveal">Projects I'm proud of</h2>
+  <h2 class="section-title reveal">Things I've shipped</h2>
 
   <div class="projects-grid">
 
@@ -87,14 +89,14 @@
       <div class="project-body">
         <p class="project-number">01</p>
         <h3 class="project-name">Customer Onboard Agent</h3>
-        <p class="project-desc">An AI-powered chat system that turns traditional onboarding forms into natural conversations, extracting and validating customer information in real time.</p>
+        <p class="project-desc">An AI chat agent that replaces traditional onboarding forms with natural conversation. Uses Claude tool-use to extract, validate, and save customer fields in real time — businesses configure the schema, no code changes needed.</p>
         <div class="project-tags">
-          <span class="tag">React</span>
+          <span class="tag">Claude AI</span>
+          <span class="tag neutral">React</span>
           <span class="tag neutral">TypeScript</span>
-          <span class="tag neutral">Vite</span>
-          <span class="tag neutral">Tailwind CSS</span>
           <span class="tag neutral">Supabase</span>
-          <span class="tag neutral">Claude API</span>
+          <span class="tag neutral">Tailwind</span>
+          <span class="tag neutral">Edge Functions</span>
         </div>
         <div class="project-links">
           <a href="https://github.com/ysongh/Customer-Onboard-Agent" class="project-link" target="_blank" rel="noopener">GitHub &rarr;</a>
@@ -153,8 +155,8 @@
   <div class="contact-layout">
     <div class="contact-info">
       <p class="section-label reveal">Contact</p>
-      <h2 class="section-title reveal" style="margin-bottom:1.5rem;">Let's work<br/>together.</h2>
-      <p class="reveal">I'm actively looking for new opportunities — whether that's a full-time role, contract work, or just an interesting project. Don't hesitate to reach out.</p>
+      <h2 class="section-title reveal" style="margin-bottom:1.5rem;">Let's build<br/>something.</h2>
+      <p class="reveal">I'm looking for full stack or AI engineering roles — at startups building with LLMs, or teams that move fast and care about the craft. Based in NYC, open to hybrid or remote.</p>
       <div class="contact-direct reveal">
         <a href="mailto:ysongweb3@gmail.com">
           <span class="icon">@</span>
