@@ -7,7 +7,7 @@ Static personal portfolio site for Song — full stack + AI engineer based in NY
 - `index.html` — page structure (nav, hero, projects, contact, footer)
 - `styles.css` — all styling; uses CSS custom properties defined on `:root`
 - `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (AJAX-posts to Netlify Forms)
-- `images/` — project screenshots (`customeronboardagent.png`, `cheapnyc.png`, `miniappgallery.png`); all lowercase, no separators
+- `images/` — project screenshots (`customeronboardagent.png`, `autonomousagentreviewers.png`, `miniappgallery.png`); all lowercase, no separators
 
 ## Design system
 
