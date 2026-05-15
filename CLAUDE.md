@@ -8,6 +8,7 @@ Static personal portfolio site for Song — full stack + AI engineer based in NY
 - `styles.css` — all styling; uses CSS custom properties defined on `:root`
 - `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (AJAX-posts to Netlify Forms)
 - `images/` — project screenshots (`customeronboardagent.png`, `autonomousagentreviewers.png`, `miniappgallery.png`); all lowercase, no separators
+- `brand/` — favicons + brand lockup. Only files actually referenced from `index.html` live here: `favicon.svg`, `favicon-16/32/192/512.png`, `apple-touch-icon.png`, `ysongh-lockup.svg` (used in the nav). Don't add unreferenced size variants — prune instead.
 
 ## Design system
 

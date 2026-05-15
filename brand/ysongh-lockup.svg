@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160">
+  
+  <g transform="translate(20 20)">
+    <rect width="120" height="120" rx="26" fill="#0e0d0a"></rect>
+    <text x="36" y="86" font-family="Geist Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="64" font-weight="500" fill="#f3f1ec" letter-spacing="-3">y</text>
+    <rect x="68" y="76" width="28" height="7" rx="1" fill="#c4733a"></rect>
+  </g>
+  
+  <text x="170" y="102" font-family="Geist Mono, ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="80" font-weight="500" letter-spacing="-2">
+    <tspan fill="#14130f">ysongh</tspan><tspan fill="#c4733a" font-weight="400">()</tspan>
+  </text>
+</svg>
