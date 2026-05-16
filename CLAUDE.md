@@ -7,15 +7,15 @@ Static personal portfolio site for Song — full stack + AI engineer based in NY
 - `index.html` — page structure (nav, hero, projects, contact, footer)
 - `styles.css` — all styling; uses CSS custom properties defined on `:root`
 - `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (AJAX-posts to Netlify Forms)
-- `images/` — project screenshots (`customeronboardagent.png`, `autonomousagentreviewers.png`, `miniappgallery.png`); all lowercase, no separators
-- `brand/` — favicons + brand lockup. Only files actually referenced from `index.html` live here: `favicon.svg`, `favicon-16/32/192/512.png`, `apple-touch-icon.png`, `ysongh-lockup.svg` (used in the nav). Don't add unreferenced size variants — prune instead.
+- `images/` — project screenshots (`pitchpicture.png`, `autonomousagentreviewers.png`, `customeronboardagent.png`); all lowercase, no separators. `pitchpicture.png` is referenced but not yet committed — add the screenshot or that thumb will 404.
+- `brand/` — favicons only. Files actually referenced from `index.html`: `favicon.svg`, `favicon-16/32/192/512.png`, `apple-touch-icon.png`. The nav lockup is now inline HTML (`.nav-logo` → `.y-mark` + `.wm`, in Geist Mono), not an SVG, so `ysongh-lockup.svg` is unreferenced and can be pruned.
 
 ## Design system
 
 Defined as CSS variables in `styles.css` `:root`:
 
 - Palette: warm off-white bg (`#f7f3ec`), darker bg2 (`#ede9e0`), near-black text (`#1c1814`), muted brown (`#7a7269`), blue accent (`oklch(0.45 0.15 260)`)
-- Type: Playfair Display (serif, editorial headings) + DM Sans (sans, body), loaded from Google Fonts
+- Type: Playfair Display (serif, editorial headings) + DM Sans (sans, body) + Geist Mono (nav lockup, code card), loaded from Google Fonts
 - Sections use `padding: 7rem 3rem` (desktop) / `5rem 1.5rem` (≤768px)
 - Hero has extra top padding (`6rem` / `5rem`) to clear the fixed nav
 - Hero is a 2-col grid (`.hero-left` text / `.hero-right` 3D scene); collapses to 1-col at ≤900px
@@ -25,6 +25,7 @@ Defined as CSS variables in `styles.css` `:root`:
 
 - Reveal-on-scroll: add `.reveal` class — `script.js` observes and adds `.visible` when in viewport
 - Project thumbs are `<img>` inside `.project-thumb` (16:9, `object-fit: cover`)
+- Project cards use 3D parallax on hover: `#myProject` has `perspective: 1600px`, cards have `transform-style: preserve-3d`, inner layers (`.project-thumb`, `.project-number`, `.project-name`, `.project-desc`, `.project-tags`, `.project-links`) get incremental `translateZ` on `.project-card:hover`. `script.js` adds mouse-position rotateX/rotateY tilt (max ±8°) per card
 - Accent-dependent border on `.tag` uses a hardcoded `oklch(0.87 0.07 260)` that must be updated if the accent hue changes
 - Responsive breakpoint: single `@media (max-width: 768px)` block at bottom of `styles.css`
 

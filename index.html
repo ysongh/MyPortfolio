@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Song — Full Stack & AI Engineer, NYC</title>
+  <title>ysongh() — Full Stack & AI Engineer, NYC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
   <link rel="icon" type="image/svg+xml" href="brand/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="32x32" href="brand/favicon-32.png"/>
@@ -18,8 +18,9 @@
 <body>
 
 <nav id="nav">
-  <a href="#home" class="nav-logo" aria-label="ysongh — home">
-    <img src="brand/ysongh-lockup.svg" alt="ysongh" class="nav-logo-lockup"/>
+  <a class="nav-logo" href="#home" aria-label="ysongh home">
+    <span class="y-mark"><span class="yy">y</span><span class="cur"></span></span>
+    <span class="wm">ysongh<span class="b">()</span></span>
   </a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
@@ -92,23 +93,23 @@
 
     <div class="project-card reveal">
       <div class="project-thumb">
-        <img src="images/customeronboardagent.png" alt="Customer Onboard Agent screenshot"/>
+        <img src="images/pitchpicture.png" alt="Pitch Picture screenshot"/>
       </div>
       <div class="project-body">
         <p class="project-number">01</p>
-        <h3 class="project-name">Customer Onboard Agent</h3>
-        <p class="project-desc">An AI chat agent that replaces traditional onboarding forms with natural conversation. Uses Claude tool-use to extract, validate, and save customer fields in real time — businesses configure the schema, no code changes needed.</p>
+        <h3 class="project-name">Pitch Picture</h3>
+        <p class="project-desc">A web app that turns a spoken brainstorm into a visual diagram. Record an idea → Deepgram transcribes it → Claude picks a diagram type and writes Mermaid → rendered as a shareable visual. Speech-to-diagram pipeline end-to-end.</p>
         <div class="project-tags">
           <span class="tag">Claude AI</span>
-          <span class="tag neutral">React</span>
+          <span class="tag neutral">Deepgram</span>
+          <span class="tag neutral">React 19</span>
           <span class="tag neutral">TypeScript</span>
+          <span class="tag neutral">Express</span>
           <span class="tag neutral">Supabase</span>
-          <span class="tag neutral">Tailwind</span>
-          <span class="tag neutral">Edge Functions</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/ysongh/Customer-Onboard-Agent" class="project-link" target="_blank" rel="noopener">GitHub &rarr;</a>
-          <a href="https://youtu.be/s0tTYtPPDUI" class="project-link" target="_blank" rel="noopener">Demo Video &rarr;</a>
+          <a href="https://github.com/ysongh/PitchPicture" class="project-link" target="_blank" rel="noopener">GitHub &rarr;</a>
+          <a href="https://pitchpicture.netlify.app/" class="project-link" target="_blank" rel="noopener">Live Site &rarr;</a>
         </div>
       </div>
     </div>
@@ -138,20 +139,23 @@
 
     <div class="project-card reveal">
       <div class="project-thumb">
-        <img src="images/miniappgallery.png" alt="MiniAppGallery screenshot"/>
+        <img src="images/customeronboardagent.png" alt="Customer Onboard Agent screenshot"/>
       </div>
       <div class="project-body">
         <p class="project-number">03</p>
-        <h3 class="project-name">MiniAppGallery</h3>
-        <p class="project-desc">A curated gallery showcasing a collection of mini apps, built in TypeScript. A polished discovery interface for exploring small, focused tools.</p>
+        <h3 class="project-name">Customer Onboard Agent</h3>
+        <p class="project-desc">An AI chat agent that replaces traditional onboarding forms with natural conversation. Uses Claude tool-use to extract, validate, and save customer fields in real time — businesses configure the schema, no code changes needed.</p>
         <div class="project-tags">
-          <span class="tag">TypeScript</span>
+          <span class="tag">Claude AI</span>
           <span class="tag neutral">React</span>
-          <span class="tag neutral">Gallery</span>
+          <span class="tag neutral">TypeScript</span>
+          <span class="tag neutral">Supabase</span>
+          <span class="tag neutral">Tailwind</span>
+          <span class="tag neutral">Edge Functions</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/ysongh/MiniAppGallery" class="project-link" target="_blank" rel="noopener">GitHub &rarr;</a>
-          <a href="https://miniappgallery.netlify.app/" class="project-link" target="_blank" rel="noopener">Live Site &rarr;</a>
+          <a href="https://github.com/ysongh/Customer-Onboard-Agent" class="project-link" target="_blank" rel="noopener">GitHub &rarr;</a>
+          <a href="https://youtu.be/s0tTYtPPDUI" class="project-link" target="_blank" rel="noopener">Demo Video &rarr;</a>
         </div>
       </div>
     </div>
@@ -209,7 +213,7 @@
 </section>
 
 <footer>
-  <small>© 2026 Song. All rights reserved.</small>
+  <small>© 2026 ysongh<span style="color:var(--accent)">()</span></small>
   <div class="footer-links">
     <a href="https://github.com/ysongh" target="_blank" rel="noopener">GitHub</a>
     <a href="mailto:ysongweb3@gmail.com">Email</a>
