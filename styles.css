@@ -380,6 +380,10 @@ input, textarea {
 input:focus, textarea:focus { border-color: var(--text); }
 textarea { resize: vertical; min-height: 130px; }
 .form-submit-row { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.hp-field {
+  position: absolute; left: -9999px; top: auto;
+  width: 1px; height: 1px; overflow: hidden;
+}
 .form-status {
   font-size: 0.82rem; color: var(--accent); min-height: 1.2rem;
   display: flex; align-items: center;

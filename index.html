@@ -33,7 +33,7 @@
   <div class="hero-left">
     <div class="hero-eyebrow">Full Stack &amp; AI Engineer · NYC</div>
     <h1 class="hero-name">Full stack apps,<br/>now <em>with agents<br/>inside.</em></h1>
-    <p class="hero-tagline">I'm Song — I build full stack web apps and LLM-powered AI agents. Comfortable across the whole stack: React frontends, Node/Express APIs, MongoDB, and local inference with Ollama and vLLM. Open to full stack and AI engineering roles.</p>
+    <p class="hero-tagline">I'm Song — I build full stack web apps and LLM-powered AI agents. Comfortable across the whole stack: React frontends, Node/Express APIs, and Claude-powered agents with tool-use and memory. Open to full stack and AI engineering roles.</p>
     <div class="hero-ctas">
       <a href="#myProject" class="btn-primary">View My Work</a>
       <a href="#contactMe" class="btn-outline">Get in Touch</a>
@@ -44,9 +44,7 @@
       <span class="skill-tag">TypeScript</span>
       <span class="skill-tag">MongoDB</span>
       <span class="skill-tag">Python</span>
-      <span class="skill-tag">OpenAI</span>
-      <span class="skill-tag">Anthropic</span>
-      <span class="skill-tag">LangChain</span>
+      <span class="skill-tag">Claude API</span>
       <span class="skill-tag">GraphQL</span>
       <span class="skill-tag">REST API</span>
     </div>
@@ -60,19 +58,19 @@
             <div class="h3d-dot r"></div>
             <div class="h3d-dot y"></div>
             <div class="h3d-dot g"></div>
-            <span class="h3d-filename">portfolio.js</span>
+            <span class="h3d-filename">agent.ts</span>
           </div>
           <div class="h3d-code">
-            <div class="h3d-line"><span class="h3d-ln">1</span><span class="h3d-text"><span class="h3d-kw">const</span> <span class="h3d-pl">agent</span> = <span class="h3d-kw">new</span> <span class="h3d-fn">AIAgent</span>({</span></div>
-            <div class="h3d-line"><span class="h3d-ln">2</span><span class="h3d-text">&nbsp;&nbsp;model: <span class="h3d-str">'llama3'</span>,</span></div>
-            <div class="h3d-line"><span class="h3d-ln">3</span><span class="h3d-text">&nbsp;&nbsp;runtime: <span class="h3d-str">'ollama'</span>,</span></div>
-            <div class="h3d-line"><span class="h3d-ln">4</span><span class="h3d-text">&nbsp;&nbsp;tools: [<span class="h3d-str">'search'</span>, <span class="h3d-str">'code'</span>],</span></div>
-            <div class="h3d-line"><span class="h3d-ln">5</span><span class="h3d-text">&nbsp;&nbsp;<span class="h3d-cm">// local inference, no API key</span></span></div>
-            <div class="h3d-line"><span class="h3d-ln">6</span><span class="h3d-text">});</span></div>
-            <div class="h3d-line"><span class="h3d-ln">7</span><span class="h3d-text">&nbsp;</span></div>
-            <div class="h3d-line"><span class="h3d-ln">8</span><span class="h3d-text"><span class="h3d-kw">await</span> agent.<span class="h3d-fn">run</span>(</span></div>
-            <div class="h3d-line"><span class="h3d-ln">9</span><span class="h3d-text">&nbsp;&nbsp;<span class="h3d-str">'build something great'</span></span></div>
-            <div class="h3d-line"><span class="h3d-ln">10</span><span class="h3d-text">);<span class="h3d-cursor"></span></span></div>
+            <div class="h3d-line"><span class="h3d-ln">1</span><span class="h3d-text"><span class="h3d-kw">const</span> <span class="h3d-pl">msg</span> = <span class="h3d-kw">await</span> anthropic.messages.<span class="h3d-fn">create</span>({</span></div>
+            <div class="h3d-line"><span class="h3d-ln">2</span><span class="h3d-text">&nbsp;&nbsp;model: <span class="h3d-str">'claude-sonnet-4'</span>,</span></div>
+            <div class="h3d-line"><span class="h3d-ln">3</span><span class="h3d-text">&nbsp;&nbsp;max_tokens: <span class="h3d-str">1024</span>,</span></div>
+            <div class="h3d-line"><span class="h3d-ln">4</span><span class="h3d-text">&nbsp;&nbsp;tools: [saveCustomer],</span></div>
+            <div class="h3d-line"><span class="h3d-ln">5</span><span class="h3d-text">&nbsp;&nbsp;messages: [</span></div>
+            <div class="h3d-line"><span class="h3d-ln">6</span><span class="h3d-text">&nbsp;&nbsp;&nbsp;&nbsp;{ role: <span class="h3d-str">'user'</span>, content: input }</span></div>
+            <div class="h3d-line"><span class="h3d-ln">7</span><span class="h3d-text">&nbsp;&nbsp;]</span></div>
+            <div class="h3d-line"><span class="h3d-ln">8</span><span class="h3d-text">});</span></div>
+            <div class="h3d-line"><span class="h3d-ln">9</span><span class="h3d-text">&nbsp;&nbsp;<span class="h3d-cm">// model calls the tool →</span></span></div>
+            <div class="h3d-line"><span class="h3d-ln">10</span><span class="h3d-text"><span class="h3d-fn">handleToolUse</span>(msg.content);<span class="h3d-cursor"></span></span></div>
           </div>
         </div>
 
@@ -170,9 +168,9 @@
       <h2 class="section-title reveal" style="margin-bottom:1.5rem;">Let's build<br/>something.</h2>
       <p class="reveal">I'm looking for full stack or AI engineering roles — at startups building with LLMs, or teams that move fast and care about the craft. Based in NYC, open to hybrid or remote.</p>
       <div class="contact-direct reveal">
-        <a href="mailto:ysongweb3@gmail.com">
+        <a href="mailto:songweb@ysonghweb.com">
           <span class="icon">@</span>
-          ysongweb3@gmail.com
+          songweb@ysonghweb.com
         </a>
         <a href="https://github.com/ysongh" target="_blank" rel="noopener">
           <span class="icon">GH</span>
@@ -187,9 +185,10 @@
 
     <form id="contact-form" class="reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact"/>
-      <p hidden>
-        <label>Don't fill this out: <input name="bot-field"/></label>
-      </p>
+      <div class="hp-field" aria-hidden="true">
+        <label for="bot-field">Don't fill this out</label>
+        <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off"/>
+      </div>
       <div class="form-row">
         <div class="form-field">
           <label for="fname">Name</label>
@@ -216,7 +215,7 @@
   <small>© 2026 ysongh<span style="color:var(--accent)">()</span></small>
   <div class="footer-links">
     <a href="https://github.com/ysongh" target="_blank" rel="noopener">GitHub</a>
-    <a href="mailto:ysongweb3@gmail.com">Email</a>
+    <a href="mailto:songweb@ysonghweb.com">Email</a>
     <a href="https://www.youtube.com/channel/UCOU3dh-rVwqY2Hat9cVxsRA" target="_blank" rel="noopener">YouTube</a>
   </div>
 </footer>
