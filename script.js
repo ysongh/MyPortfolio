@@ -1,8 +1,3 @@
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-});
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -13,12 +8,19 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// If a screenshot is missing, drop the <img> so the placeholder underneath shows.
+document.querySelectorAll('.thumb img').forEach(img => {
+  img.addEventListener('error', () => img.remove());
+});
+
 const form = document.getElementById('contact-form');
+const btn = document.getElementById('submit-btn');
+const btnLabel = btn.querySelector('span');
+const status = document.getElementById('form-status');
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const btn = document.getElementById('submit-btn');
-  const status = document.getElementById('form-status');
-  btn.textContent = 'Sending…';
+  btnLabel.textContent = 'Sending…';
   btn.disabled = true;
   status.textContent = '';
 
@@ -31,17 +33,17 @@ form.addEventListener('submit', async (e) => {
     });
     if (!res.ok) throw new Error(res.statusText);
 
-    status.textContent = "Message sent! I'll be in touch soon.";
-    btn.textContent = 'Sent ✓';
+    status.textContent = "Message sent — I'll be in touch soon.";
+    btnLabel.textContent = 'Sent ✓';
     form.reset();
     setTimeout(() => {
-      btn.textContent = 'Send Message';
+      btnLabel.textContent = 'Send Message';
       btn.disabled = false;
       status.textContent = '';
     }, 4000);
   } catch (err) {
     status.textContent = 'Something went wrong. Please email me directly.';
-    btn.textContent = 'Send Message';
+    btnLabel.textContent = 'Send Message';
     btn.disabled = false;
   }
 });

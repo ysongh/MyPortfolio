@@ -4,34 +4,41 @@ Static personal portfolio site for Song — full stack + AI engineer based in NY
 
 ## Files
 
-- `index.html` — page structure (nav, hero, projects, contact, footer)
-- `styles.css` — all styling; uses CSS custom properties defined on `:root`
-- `script.js` — nav scroll state, IntersectionObserver reveal animations, contact form handler (AJAX-posts to Netlify Forms)
-- `images/` — project screenshots (`pitchpicture.png`, `autonomousagentreviewers.png`, `customeronboardagent.png`); all lowercase, no separators. `pitchpicture.png` is referenced but not yet committed — add the screenshot or that thumb will 404.
-- `brand/` — favicons only. Files actually referenced from `index.html`: `favicon.svg`, `favicon-16/32/192/512.png`, `apple-touch-icon.png`. The nav lockup is now inline HTML (`.nav-logo` → `.y-mark` + `.wm`, in Geist Mono), not an SVG, so `ysongh-lockup.svg` is unreferenced and can be pruned.
+- `index.html` — page structure (icon sprite, ribbon, header, hero, projects, contact, footer)
+- `styles.css` — all styling: design3 tokens, theme override, then component/section rules
+- `script.js` — IntersectionObserver reveal animations, project-thumb error fallback, contact form handler (AJAX-posts to Netlify Forms)
+- `images/` — project screenshots (`pitchpicture.png`, `autonomousagentreviewers.png`, `customeronboardagent.png`); all lowercase, no separators
+- `brand/` — `y-mark.svg` (the nav/footer lockup mark) plus favicons: `favicon.svg`, `favicon-16/32/192/512.png`, `apple-touch-icon.png`. `ysongh-lockup.svg` is unreferenced and can be pruned.
 
 ## Design system
 
-Defined as CSS variables in `styles.css` `:root`:
+Imported from the Claude Design **design3** bundle (project `77ff206b-b4de-4195-bd42-6ccdcb8c8562`, file `Portfolio v1 (design3).html`). `styles.css` opens with two `:root` blocks that mirror the source:
 
-- Palette: warm off-white bg (`#f7f3ec`), darker bg2 (`#ede9e0`), near-black text (`#1c1814`), muted brown (`#7a7269`), blue accent (`oklch(0.45 0.15 260)`)
-- Type: Playfair Display (serif, editorial headings) + DM Sans (sans, body) + Geist Mono (nav lockup, code card), loaded from Google Fonts
-- Sections use `padding: 7rem 3rem` (desktop) / `5rem 1.5rem` (≤768px)
-- Hero has extra top padding (`6rem` / `5rem`) to clear the fixed nav
-- Hero is a 2-col grid (`.hero-left` text / `.hero-right` 3D scene); collapses to 1-col at ≤900px
-- 3D hero scene (`.hero-3d-scene`): code-editor card with syntax-highlighted lines, 3 floating chips, and a blur-shadow blob. Uses `perspective` on `.hero-right` + `transform-style: preserve-3d` + `translateZ` on chips. Animation keyframes: `floatScene`, `chipFloat1/2/3`, `shadowPulse`, `blink` (cursor)
+1. **Base tokens** — verbatim from `_ds/design3-.../tokens/*.css` (colors, typography, spacing, radius, motion, semantic aliases)
+2. **Theme override** — the prototype's inline `<style id="theme">`, which re-maps the `--violet-*` ramp to **blue** (`--violet-600: #1d5bc4`), warms the `--mist-*` neutrals, and points `--action-primary-bg` at `--ink-900`. Blue is what ships; the DS token *names* are kept so the design system stays traceable on a re-sync.
+
+- Type: **Archivo** only (Google Fonts), plus a system mono stack via `--font-mono`
+- Surfaces: white page, `--surface-band` (`#f2f1ee`) for the projects band and footer, joined by `WaveDivider` SVGs
+- The hero sits in `.shell` (dark `--gradient-blob`) → `.sheet` (white, `--radius-3xl` top corners), so the gradient shows only at the sheet's rounded top corners
 
 ## Conventions
 
-- Reveal-on-scroll: add `.reveal` class — `script.js` observes and adds `.visible` when in viewport
-- Project thumbs are `<img>` inside `.project-thumb` (16:9, `object-fit: cover`)
-- Project cards use 3D parallax on hover: `#myProject` has `perspective: 1600px`, cards have `transform-style: preserve-3d`, inner layers (`.project-thumb`, `.project-number`, `.project-name`, `.project-desc`, `.project-tags`, `.project-links`) get incremental `translateZ` on `.project-card:hover`. `script.js` adds mouse-position rotateX/rotateY tilt (max ±8°) per card
-- Accent-dependent border on `.tag` uses a hardcoded `oklch(0.87 0.07 260)` that must be updated if the accent hue changes
-- Responsive breakpoint: single `@media (max-width: 768px)` block at bottom of `styles.css`
+- Reveal-on-scroll: add `.reveal` — `script.js` adds `.visible` when in viewport (the design used `.on`; `.visible` is kept from the previous build)
+- Icons are inline `<symbol>`s in a hidden sprite at the top of `<body>`, referenced with `<svg class="ic"><use href="#i-name"/></svg>`. Geometry is Lucide's; they're inlined rather than CDN-loaded to keep the page dependency-free. Add new icons as new `<symbol>`s.
+- Components are plain CSS classes ported from the design's React props: `.btn` + `.btn-primary`/`.btn-outline`/`.btn-sm`, `.badge` + `.badge.tint`, `.eyebrow` + `.eyebrow.paper`, `.gh` + `.gh-accent`, `.card`, `.field`/`.field-shell`
+- Project cards lift on hover (`translateY(-4px)` + `--shadow-raised`) — the old 3D parallax tilt is gone, matching design3's calmer motion tokens
+- The header is **not** fixed; it lives inside `.sheet`. There is no scroll state.
+- Breakpoints: `1000px` (hero and contact collapse to 1 col) and `760px` (nav hides, form single-col, `c2` chip hides, display type scales down)
 
-## Origin
+## Deviations from the design bundle
 
-Implemented from a Claude Design handoff bundle. The original prototype had an inline "Tweaks panel" (live color/font editing via `postMessage` to a parent frame); that was stripped as design-tool scaffolding. The prototype's `TWEAK_DEFAULTS` (blue accent) overrode its CSS defaults (terracotta) — blue is what ships.
+Deliberate, and worth preserving if the design is re-synced:
+
+- **Display type scales down at ≤760px** (`--text-display-*` redefined in the media query). The design's fixed 60px `h1` overflows narrow viewports.
+- **`.chip.c2` uses `bottom: 8px`**, not the design's `12%` — at this card height the percentage put the chip on top of the last two code lines.
+- **`.nav-sep` uses `var(--border-color)`** instead of the design's hardcoded violet-tinted `#efedf6`, which reads wrong under the blue/warm theme.
+- **Code card shows `claude-opus-5`**; the design's prototype had the outdated `claude-sonnet-4`.
+- **Project 02 copy** (Autonomous Agent Reviewers) keeps this repo's longer description and tag list, which is more specific than the design's shorter variant.
 
 ## Known TODO (not done)
 
@@ -39,4 +46,4 @@ Implemented from a Claude Design handoff bundle. The original prototype had an i
 
 ## Netlify Forms
 
-The contact form uses Netlify Forms. The form element has `name="contact"`, `method="POST"`, `data-netlify="true"`, and a `netlify-honeypot="bot-field"` for spam protection. A hidden `form-name` input is included so JS submissions are also detected. `script.js` posts to `/` as `application/x-www-form-urlencoded` so the page doesn't navigate away on submit. Submissions appear in the Netlify site dashboard under Forms (only works on deployed site, not local preview).
+The contact form uses Netlify Forms. The form element has `name="contact"`, `method="POST"`, `data-netlify="true"`, and a `netlify-honeypot="bot-field"` for spam protection. A hidden `form-name` input is included so JS submissions are also detected. `script.js` posts to `/` as `application/x-www-form-urlencoded` so the page doesn't navigate away on submit. The submit button's label lives in a nested `<span>` (it sits alongside an icon), so `script.js` swaps `btnLabel.textContent`, not the button's. Submissions appear in the Netlify site dashboard under Forms (only works on deployed site, not local preview).
